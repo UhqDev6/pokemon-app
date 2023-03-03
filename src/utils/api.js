@@ -1,7 +1,7 @@
 const api = (() => {
   const BASE_URL = 'https://pokeapi.co/api/v2';
 
-  const getAllPokemon = async (limit = 50) => {
+  const getAllPokemon = async () => {
     try {
       const response = await fetch(`${BASE_URL}/pokemon`);
       const responseJson = await response.json();
@@ -12,7 +12,6 @@ const api = (() => {
         return dataRes;
       });
       const results = await Promise.all(result);
-      console.log(results);
       return results;
     } catch (error) {
       throw new Error(error.message);
@@ -23,8 +22,8 @@ const api = (() => {
     const response = await fetch(`${BASE_URL}/pokemon/${id}`, {
       method: 'GET',
     });
-    const responseJson = await response.json();
-    return responseJson;
+    const data = await response.json();
+    return data;
   };
 
   return {
