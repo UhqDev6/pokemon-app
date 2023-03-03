@@ -18,8 +18,18 @@ const api = (() => {
       throw new Error(error.message);
     }
   };
+
+  const getDetailPokemon = async (id) => {
+    const response = await fetch(`${BASE_URL}/pokemon/${id}`, {
+      method: 'GET',
+    });
+    const responseJson = await response.json();
+    return responseJson;
+  };
+
   return {
     getAllPokemon,
+    getDetailPokemon,
   };
 })();
 

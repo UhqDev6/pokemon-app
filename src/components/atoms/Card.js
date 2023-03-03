@@ -1,13 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 
 function Card(props) {
-  const { children } = props;
+  const { children, pokemon } = props;
 
   return (
-    <div data-cy="activity-item" className="w-52 h-72 shadow-md rounded-2xl overflow-hidden -insert-0.5 bg-gradient-to-br from-violet-200 to-white opacity-75 transition duration-200 mt-8">
-      {children}
-    </div>
+    <Link to={`/pokemon/${pokemon.id}`}>
+      <div data-cy="activity-item" className="w-52 h-72 shadow-md rounded-2xl overflow-hidden -insert-0.5 bg-gradient-to-br from-violet-100 to-white opacity-75 transition duration-200 mt-8 border-[1px] hover:border-violet-400 cursor-pointer">
+        {children}
+      </div>
+    </Link>
   );
 }
 
@@ -69,5 +72,13 @@ Footer.defaultProps = {
 Card.Title = Title;
 Card.Body = Body;
 Card.Footer = Footer;
+
+Card.propTypes = {
+  pokemon: PropTypes.func,
+};
+
+Card.defaultProps = {
+  pokemon: [],
+};
 
 export default Card;

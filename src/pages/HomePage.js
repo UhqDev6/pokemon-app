@@ -21,20 +21,22 @@ function HomePage() {
     setIsloading(false);
   }, [dispatch]);
   return (
-    <div className="p-5">
-      {
-        isLoading ? (
-          <SpinnerLoading />
-        ) : (
-          pokemons.map((pokemon) => (
-            <div className="flex justify-center">
-              <Card>
-                <PokemonList pokemon={pokemon} key={pokemon.id} isLoading={isLoading} />
-              </Card>
-            </div>
-          ))
-        )
-      }
+    <div className="p-5 flex w-full mx-auto justify-center sm:justify-start">
+      <div className="flex flex-wrap gap-5 justify-center">
+        {
+          isLoading ? (
+            <SpinnerLoading />
+          ) : (
+            pokemons.map((pokemon) => (
+              <div className="md=flex md:flex-row justify-center" key={pokemon.id}>
+                <Card pokemon={pokemon}>
+                  <PokemonList pokemon={pokemon} key={pokemon.id} isLoading={isLoading} />
+                </Card>
+              </div>
+            ))
+          )
+        }
+      </div>
     </div>
   );
 }
