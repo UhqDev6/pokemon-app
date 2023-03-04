@@ -18,7 +18,7 @@ function PokemonList(props) {
               <h1>{pokemon.name}</h1>
             </div>
             <div className="flex justify-center mx-auto antialiased font-light text-sm capitalize">
-              <p>{`#${pokemon.id}`}</p>
+              <p>{`#${pokemon.id.toString().padStart(3, '0')}`}</p>
             </div>
             <div className=" flex justify-center mx-auto mt-5">
               <img className="w-32 h-24" src={pokemon.sprites.other.dream_world.front_default} alt={pokemon.sprites.other.dream_world.front_default} />
@@ -46,7 +46,7 @@ PokemonList.propTypes = {
 
 PokemonList.defaultProps = {
   pokemon: [],
-  isLoading: false,
+  isLoading: true,
 };
 
 export default PokemonList;
