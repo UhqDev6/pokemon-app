@@ -7,7 +7,7 @@ function Card(props) {
 
   return (
     <Link to={`/pokemon/${pokemon.id}`}>
-      <div data-cy="activity-item" className="w-52 h-72 shadow-md rounded-2xl overflow-hidden -insert-0.5 bg-gradient-to-br from-violet-100 to-white opacity-75 transition duration-200 mt-8 border-[1px] hover:border-violet-400 cursor-pointer">
+      <div data-cy="activity-item" className="w-52 h-72 shadow-md rounded-t-full overflow-hidden -insert-0.5 bg-gradient-to-br from-violet-100 to-white opacity-75 transition duration-200 mt-8 border-[1px] hover:border-violet-400 cursor-pointer">
         {children}
       </div>
     </Link>

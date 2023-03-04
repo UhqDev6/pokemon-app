@@ -1,9 +1,10 @@
-/* eslint-disable max-len */
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import Card from '../components/atoms/Card';
 import SpinnerLoading from '../components/atoms/SpinnerLoading';
 import PokemonList from '../components/moleculas/PokemonList';
+import { addToFavoriteActionCreator, asyncAddToFavorite } from '../states/favorite/action';
 import { asyncPokemons } from '../states/pokemons/action';
 
 function HomePage() {
@@ -11,10 +12,14 @@ function HomePage() {
     pokemons = [],
   } = useSelector((states) => states);
   const [isLoading, setIsloading] = useState(true);
-
-  console.log(pokemons);
+  const navigate = useNavigate();
 
   const dispatch = useDispatch();
+
+  const handleFavorite = (key) => {
+    dispatch(asyncAddToFavorite(key));
+    navigate('/favorite');
+  };
 
   useEffect(() => {
     dispatch(asyncPokemons());
@@ -32,6 +37,15 @@ function HomePage() {
                 <Card pokemon={pokemon}>
                   <PokemonList pokemon={pokemon} key={pokemon.id} isLoading={isLoading} />
                 </Card>
+                <div className="flex justify-center shadow-md bg-violet-400 hover:bg-violet-500 cursor-pointer p-2 rounded-b-3xl text-white">
+                  <button
+                    type="button"
+                    onClick={() => handleFavorite(pokemon.id)}
+                    className="capitalize"
+                  >
+                    add to favorite
+                  </button>
+                </div>
               </div>
             ))
           )
