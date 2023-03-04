@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { BsFillBookmarkHeartFill, BsSliders } from 'react-icons/bs';
 import Card from '../components/atoms/Card';
 import SpinnerLoading from '../components/atoms/SpinnerLoading';
 import PokemonList from '../components/moleculas/PokemonList';
@@ -26,9 +27,22 @@ function HomePage() {
     setIsloading(false);
   }, [dispatch]);
   return (
-    <div className="p-5 flex w-full mx-auto justify-center sm:justify-start">
-      <div className="flex flex-wrap gap-5 justify-center">
-        {
+    <>
+      <div className="flex justify-end mr-10 gap-5">
+        <Link to="/favorite">
+          <div className="flex-none">
+            <BsFillBookmarkHeartFill color="#9f60c5" />
+          </div>
+        </Link>
+        <Link>
+          <div className="flex-none">
+            <BsSliders color="#9f60c5" />
+          </div>
+        </Link>
+      </div>
+      <div className="p-5 flex w-full mx-auto justify-center sm:justify-start">
+        <div className="flex flex-wrap gap-5 justify-center">
+          {
           isLoading ? (
             <SpinnerLoading />
           ) : (
@@ -50,8 +64,9 @@ function HomePage() {
             ))
           )
         }
+        </div>
       </div>
-    </div>
+    </>
   );
 }
 

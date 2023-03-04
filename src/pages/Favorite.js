@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { BsArrowLeft } from 'react-icons/bs';
 import Card from '../components/atoms/Card';
 import SpinnerLoading from '../components/atoms/SpinnerLoading';
 
@@ -21,7 +22,13 @@ function Favorite() {
   console.log(favorite);
   return (
     <div className="p-5 flex w-full mx-auto justify-center sm:justify-start">
-      <div className="flex flex-wrap gap-5 justify-center">
+      <Link to="/">
+        <div className="absolute">
+          <BsArrowLeft size="30px" />
+          <p className="text-slate-400">back to home</p>
+        </div>
+      </Link>
+      <div className="flex flex-wrap gap-5 justify-center mt-10">
         {
           isLoading ? (
             <SpinnerLoading />
