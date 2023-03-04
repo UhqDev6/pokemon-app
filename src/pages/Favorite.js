@@ -21,15 +21,16 @@ function Favorite() {
 
   console.log(favorite);
   return (
-    <div className="p-5 flex w-full mx-auto justify-center sm:justify-start">
+    <>
       <Link to="/">
-        <div className="absolute">
+        <div className="ml-10">
           <BsArrowLeft size="30px" />
           <p className="text-slate-400">back to home</p>
         </div>
       </Link>
-      <div className="flex flex-wrap gap-5 justify-center mt-10">
-        {
+      <div className="p-5 flex w-full mx-auto justify-center sm:justify-start">
+        <div className="flex flex-wrap gap-5 justify-center">
+          {
           isLoading ? (
             <SpinnerLoading />
           ) : (
@@ -71,8 +72,9 @@ function Favorite() {
             ))
           )
         }
+        </div>
       </div>
-    </div>
+    </>
   );
 }
 
