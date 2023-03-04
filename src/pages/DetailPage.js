@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useNavigate, useParams } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import ProgressBar from '@ramonak/react-progress-bar';
+import { BsArrowLeft } from 'react-icons/bs';
 import SpinnerLoading from '../components/atoms/SpinnerLoading';
 import { asyncReceivePokemonDetail } from '../states/pokemonDetail/action';
 import { asyncAddToFavorite } from '../states/favorite/action';
@@ -38,10 +39,17 @@ function DetailPage() {
           ) : (
             <>
               <div className="md:flex-wrap md:w-[96]">
-                <div className="flex justify-center mx-auto mt-10 antialiased text-3xl font-semibold uppercase">
-                  <h1>{pokemonDetail?.name}</h1>
+                <div className="flex justify-center gap-5 mx-auto mt-10 antialiased text-3xl font-semibold uppercase">
+                  <Link to="/">
+                    <div className="flex-none mt-[1.5px]">
+                      <BsArrowLeft />
+                    </div>
+                  </Link>
+                  <div className="flex-initial">
+                    <h1>{pokemonDetail?.name}</h1>
+                  </div>
                 </div>
-                <div className="flex justify-center mx-auto antialiased font-light text-xl capitalize">
+                <div className="flex mx-auto antialiased font-extrabold md:text-7xl text-3xl justify-center md:justify-start capitalize">
                   <p>{`#${pokemonDetail?.id.toString().padStart(3, '0')}`}</p>
                 </div>
                 <div className=" flex justify-center mx-auto mt-20">
