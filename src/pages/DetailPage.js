@@ -116,7 +116,7 @@ function DetailPage() {
                   </div>
                   <div className="w-full gap-4 border-violet-100 border-2 rounded-3xl p-3 mt-2">
                     <p>Generation-III</p>
-                    <div className="flex gap-5 mt-2">
+                    <div className="flex mt-2">
                       <img src={pokemonDetail?.sprites?.versions['generation-iii']?.emerald?.front_default} alt="foto" />
                       <img src={pokemonDetail?.sprites?.versions['generation-iii']?.['firered-leafgreen']?.front_default} alt="foto" />
                       <img src={pokemonDetail?.sprites?.versions['generation-iii']?.['ruby-sapphire']?.front_default} alt="foto" />
@@ -124,7 +124,7 @@ function DetailPage() {
                   </div>
                   <div className="w-full gap-4 border-violet-100 border-2 rounded-3xl p-3 mt-2">
                     <p>Generation-IV</p>
-                    <div className="flex gap-5 mt-2">
+                    <div className="flex mt-2">
                       <img src={pokemonDetail?.sprites?.versions['generation-iv']?.['diamond-pearl']?.front_default} alt="foto" />
                       <img src={pokemonDetail?.sprites?.versions['generation-iv']?.['heartgold-soulsilver']?.front_default} alt="foto" />
                       <img src={pokemonDetail?.sprites?.versions['generation-iv']?.platinum?.front_default} alt="foto" />
@@ -132,7 +132,7 @@ function DetailPage() {
                   </div>
                   <div className="w-full gap-4 border-violet-100 border-2 rounded-3xl p-3 mt-2">
                     <p>Generation-V</p>
-                    <div className="flex gap-5 mt-2">
+                    <div className="flex mt-2">
                       <img src={pokemonDetail?.sprites?.versions['generation-v']?.['black-white']?.animated?.front_default} alt="foto" />
                     </div>
                   </div>
