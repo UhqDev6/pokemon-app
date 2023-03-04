@@ -16,10 +16,6 @@ function DetailPage() {
 
   console.log(pokemonDetail);
 
-  const handleInfo = (uuid) => {
-    console.log(uuid);
-  };
-
   useEffect(() => {
     dispatch(asyncReceivePokemonDetail(id));
     setIsloading(false);
@@ -59,6 +55,14 @@ function DetailPage() {
                     About
                   </li>
                   <div className="w-full bg-violet-100 rounded-3xl p-3 mt-2">
+                    <div className="flex gap-2">
+                      Abilities:
+                      {
+                        pokemonDetail?.abilities.map((ability) => (
+                          <p>{`${ability.ability.name}`}</p>
+                        ))
+                      }
+                    </div>
                     <p>{`Strength: ${pokemonDetail?.moves[0].move.name}`}</p>
                     <p>{`Height: ${pokemonDetail?.height}`}</p>
                     <p>{`Weight: ${pokemonDetail?.weight}`}</p>
