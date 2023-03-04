@@ -16,8 +16,8 @@ function HomePage() {
 
   const dispatch = useDispatch();
 
-  const handleFavorite = (key) => {
-    dispatch(asyncAddToFavorite(key));
+  const handleFavorite = (id) => {
+    dispatch(asyncAddToFavorite(id));
     navigate('/favorite');
   };
 

@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import ProgressBar from '@ramonak/react-progress-bar';
 import SpinnerLoading from '../components/atoms/SpinnerLoading';
 import { asyncReceivePokemonDetail } from '../states/pokemonDetail/action';
+import { asyncAddToFavorite } from '../states/favorite/action';
 
 function DetailPage() {
   const { id } = useParams();
@@ -14,7 +15,14 @@ function DetailPage() {
     pokemonDetail = [],
   } = useSelector((states) => states);
 
+  const navigate = useNavigate();
+
   console.log(pokemonDetail);
+
+  const handleFavorite = (key) => {
+    dispatch(asyncAddToFavorite(key));
+    navigate('/favorite');
+  };
 
   useEffect(() => {
     dispatch(asyncReceivePokemonDetail(id));
@@ -41,12 +49,12 @@ function DetailPage() {
                 </div>
                 <div className="flex justify-center mx-auto antialiased font-light text-sm mt-16">
                   {
-                pokemonDetail?.types.map((type) => (
-                  <span key={type.type.url} className={`${type.type.name}  rounded-full p-2 text-xs w-24 items-center ml-1 mr-1`}>
-                    <p className="flex justify-center text-white text-lg font-bold">{`${type.type.name}`}</p>
-                  </span>
-                ))
-              }
+                    pokemonDetail?.types.map((type) => (
+                      <span key={type.type.url} className={`${type.type.name}  rounded-full p-2 text-xs w-24 items-center ml-1 mr-1`}>
+                        <p className="flex justify-center text-white text-lg font-bold">{`${type.type.name}`}</p>
+                      </span>
+                    ))
+                  }
                 </div>
               </div>
               <div className="md:flex-wrap md:w-1/2 md:justify-between -mt-2 md:mt-0 md:ml-10 p-5 md:p-0">
@@ -121,6 +129,15 @@ function DetailPage() {
                     </div>
                   </div>
                 </ol>
+              </div>
+              <div className="flex w-full justify-center shadow-md bg-violet-400 hover:bg-violet-500 cursor-pointer p-2 rounded-3xl text-white">
+                <button
+                  type="button"
+                  className="capitalize"
+                  onClick={() => handleFavorite(pokemonDetail.id)}
+                >
+                  add to favorite
+                </button>
               </div>
             </>
           )

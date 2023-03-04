@@ -9,8 +9,12 @@ function Favorite() {
     favorite = [],
   } = useSelector((states) => states);
   const [isLoading, setIsloading] = useState(true);
+  // const [showData, setShowData] = useState([]);
+
+  console.log(favorite);
 
   useEffect(() => {
+    window.localStorage.setItem('favorite', JSON.stringify({ favorite }));
     setIsloading(false);
   }, []);
 
