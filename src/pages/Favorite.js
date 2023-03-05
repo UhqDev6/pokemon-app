@@ -1,25 +1,29 @@
 import React, { useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { Link, useNavigate } from 'react-router-dom';
 import { BsArrowLeft } from 'react-icons/bs';
-import Card from '../components/atoms/Card';
 import SpinnerLoading from '../components/atoms/SpinnerLoading';
+import { asyncDeleteToFavorite } from '../states/favorite/action';
 
 function Favorite() {
   const {
     favorite = [],
   } = useSelector((states) => states);
   const [isLoading, setIsloading] = useState(true);
-  // const [showData, setShowData] = useState([]);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   console.log(favorite);
 
+  const handleDeleteFavorite = (key) => {
+    dispatch(asyncDeleteToFavorite(key));
+    navigate('/favorite');
+  };
+
   useEffect(() => {
-    window.localStorage.setItem('favorite', JSON.stringify({ favorite }));
     setIsloading(false);
   }, []);
 
-  console.log(favorite);
   return (
     <>
       <Link to="/">
@@ -63,6 +67,7 @@ function Favorite() {
                 <div className="flex justify-center shadow-md bg-violet-400 hover:bg-violet-500 cursor-pointer p-2 rounded-b-3xl text-white">
                   <button
                     type="button"
+                    onClick={() => handleDeleteFavorite(fv.id)}
                     className="capitalize"
                   >
                     delete to favorite

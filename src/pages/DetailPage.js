@@ -138,10 +138,10 @@ function DetailPage() {
                   </div>
                 </ol>
               </div>
-              <div className="flex w-full justify-center shadow-md bg-violet-400 hover:bg-violet-500 cursor-pointer p-2 rounded-3xl text-white">
+              <div className="flex w-full">
                 <button
                   type="button"
-                  className="capitalize"
+                  className="w-full justify-center shadow-md bg-violet-400 hover:bg-violet-500 cursor-pointer p-2 rounded-3xl text-white"
                   onClick={() => handleFavorite(pokemonDetail.id)}
                 >
                   add to favorite
