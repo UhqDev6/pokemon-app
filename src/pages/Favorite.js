@@ -4,6 +4,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { BsArrowLeft } from 'react-icons/bs';
 import SpinnerLoading from '../components/atoms/SpinnerLoading';
 import { asyncDeleteToFavorite } from '../states/favorite/action';
+import Wrapper from '../components/atoms/Wrapper';
 
 function Favorite() {
   const {
@@ -25,7 +26,7 @@ function Favorite() {
   }, []);
 
   return (
-    <>
+    <Wrapper>
       <Link to="/">
         <div className="ml-10">
           <BsArrowLeft size="30px" />
@@ -79,7 +80,7 @@ function Favorite() {
         }
         </div>
       </div>
-    </>
+    </Wrapper>
   );
 }
 

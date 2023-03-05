@@ -6,6 +6,7 @@ import { BsArrowLeft } from 'react-icons/bs';
 import SpinnerLoading from '../components/atoms/SpinnerLoading';
 import { asyncReceivePokemonDetail } from '../states/pokemonDetail/action';
 import { asyncAddToFavorite } from '../states/favorite/action';
+import Wrapper from '../components/atoms/Wrapper';
 
 function DetailPage() {
   const { id } = useParams();
@@ -31,9 +32,10 @@ function DetailPage() {
   }, [id, dispatch]);
 
   return (
-    <div className="p-5 flex w-full mx-auto justify-center sm:justify-start">
-      <div className="md:flex w-full md:flex-wrap gap-5 justify-center">
-        {
+    <Wrapper>
+      <div className="p-5 flex w-full mx-auto justify-center sm:justify-start">
+        <div className="md:flex w-full md:flex-wrap gap-5 justify-center">
+          {
           isLoading ? (
             <SpinnerLoading />
           ) : (
@@ -150,8 +152,9 @@ function DetailPage() {
             </>
           )
         }
+        </div>
       </div>
-    </div>
+    </Wrapper>
   );
 }
 

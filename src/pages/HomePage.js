@@ -1,13 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
-import { BsFillBookmarkHeartFill, BsSliders } from 'react-icons/bs';
+import { BsFillBookmarkHeartFill, BsSliders, BsXLg } from 'react-icons/bs';
 import Card from '../components/atoms/Card';
 import SpinnerLoading from '../components/atoms/SpinnerLoading';
 import PokemonList from '../components/moleculas/PokemonList';
-import { addToFavoriteActionCreator, asyncAddToFavorite } from '../states/favorite/action';
-import { asyncLoadMorePokemons, asyncPokemons } from '../states/pokemons/action';
+import { asyncAddToFavorite } from '../states/favorite/action';
+import { asyncPokemons } from '../states/pokemons/action';
 import api from '../utils/api';
+import FilteredBar from '../components/atoms/FilteredBar';
+import Wrapper from '../components/atoms/Wrapper';
 
 function HomePage() {
   const {
@@ -18,28 +20,14 @@ function HomePage() {
   const dispatch = useDispatch();
   const [offset, setOffSet] = useState(0);
   const [poke, setPoke] = useState([]);
+  const [active, setActive] = useState(false);
 
   const handleAddFavorite = (key) => {
     dispatch(asyncAddToFavorite(key));
     navigate('/favorite');
   };
 
-  // const loadMorePokemon = () => {
-  //   offset += 10;
-  //   dispatch(asyncPokemons(offset));
-  // };
-
-  // const handleScroll = (e) => {
-  //   if (
-  //     window.innerHeight + e.target.document.documentElement.scrollTop
-  //      === e.target.document.documentElement.offsetHeight
-  //   ) {
-  //     loadMorePokemon();
-  //   }
-  // };
-
   const handleLoadMore = async () => {
-    // dispatch(asyncLoadMorePokemons(offset));
     const results = await api.getAllPokemon(offset);
     setPoke([...poke, ...results]);
     setOffSet(offset + 10);
@@ -51,18 +39,30 @@ function HomePage() {
     setIsloading(false);
   }, [dispatch]);
   return (
-    <>
+    <Wrapper>
       <div className="flex justify-end mr-10 gap-5">
         <Link to="/favorite">
           <div className="flex-none">
             <BsFillBookmarkHeartFill color="#9f60c5" />
           </div>
         </Link>
-        <Link>
+        <button
+          type="button"
+          onClick={() => setActive(!active)}
+        >
           <div className="flex-none">
-            <BsSliders color="#9f60c5" />
+            {
+              !active ? (
+                <BsSliders color="#9f60c5" />
+              ) : (
+                <BsXLg color="#9f60c5" />
+              )
+            }
           </div>
-        </Link>
+        </button>
+      </div>
+      <div className={active ? 'block' : 'hidden'}>
+        <FilteredBar />
       </div>
       <div className="p-5 flex w-full mx-auto justify-center sm:justify-start">
         <div className="flex flex-wrap gap-5 justify-center">
@@ -105,7 +105,7 @@ function HomePage() {
           }
         </button>
       </div>
-    </>
+    </Wrapper>
   );
 }
 
