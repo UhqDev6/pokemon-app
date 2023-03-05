@@ -9,11 +9,27 @@ const receivePokemonsActionCreator = (pokemons) => ({
   },
 });
 
-const asyncPokemons = () => async (dispatch) => {
+const receiveLoadMorePokemonsActionCreator = (pokemons) => ({
+  type: ActionTypes.RECEIVE_POKEMONS_MORE,
+  payload: {
+    pokemons,
+  },
+});
+
+const asyncPokemons = (offset) => async (dispatch) => {
   try {
-    const pokemons = await api.getAllPokemon();
+    const pokemons = await api.getAllPokemon(offset);
     console.log(pokemons);
     dispatch(receivePokemonsActionCreator(pokemons));
+  } catch (err) {
+    toast.error(err?.message);
+  }
+};
+
+const asyncLoadMorePokemons = (offset) => async (dispatch) => {
+  try {
+    const pokemons = await api.getAllPokemon(offset);
+    dispatch(receiveLoadMorePokemonsActionCreator(pokemons));
   } catch (err) {
     toast.error(err?.message);
   }
@@ -22,4 +38,6 @@ const asyncPokemons = () => async (dispatch) => {
 export {
   receivePokemonsActionCreator,
   asyncPokemons,
+  receiveLoadMorePokemonsActionCreator,
+  asyncLoadMorePokemons,
 };

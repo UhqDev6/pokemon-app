@@ -1,9 +1,10 @@
+/* eslint-disable prefer-const */
 const api = (() => {
   const BASE_URL = 'https://pokeapi.co/api/v2';
 
-  const getAllPokemon = async () => {
+  const getAllPokemon = async (offset) => {
     try {
-      const response = await fetch(`${BASE_URL}/pokemon`);
+      const response = await fetch(`${BASE_URL}/pokemon?limit=10&offset=${offset}`);
       const responseJson = await response.json();
 
       const result = responseJson.results.map(async (pokemon) => {

@@ -9,6 +9,13 @@ const addToFavoriteActionCreator = (favorite) => ({
   },
 });
 
+const deleteFavoriteActionCreator = (favorite) => ({
+  type: ActionTypes.DELETE_FAVORITE_POKEMON,
+  payload: {
+    favorite,
+  },
+});
+
 const asyncAddToFavorite = (id) => async (dispatch) => {
   try {
     const favorite = await api.getDetailPokemon(id);
@@ -18,7 +25,18 @@ const asyncAddToFavorite = (id) => async (dispatch) => {
   }
 };
 
+const asyncDeleteToFavorite = (id) => async (dispatch) => {
+  try {
+    const favorite = await api.getDetailPokemon(id);
+    dispatch(deleteFavoriteActionCreator(favorite));
+  } catch (err) {
+    toast.error(err?.message);
+  }
+};
+
 export {
   addToFavoriteActionCreator,
+  deleteFavoriteActionCreator,
   asyncAddToFavorite,
+  asyncDeleteToFavorite,
 };
