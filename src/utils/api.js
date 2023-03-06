@@ -1,4 +1,3 @@
-/* eslint-disable prefer-const */
 const api = (() => {
   const BASE_URL = 'https://pokeapi.co/api/v2';
 
@@ -12,6 +11,7 @@ const api = (() => {
         const dataRes = await res.json();
         return dataRes;
       });
+
       const results = await Promise.all(result);
       return results;
     } catch (error) {

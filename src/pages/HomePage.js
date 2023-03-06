@@ -6,7 +6,6 @@ import Card from '../components/atoms/Card';
 import SpinnerLoading from '../components/atoms/SpinnerLoading';
 import PokemonList from '../components/moleculas/PokemonList';
 import { asyncAddToFavorite } from '../states/favorite/action';
-import { asyncPokemons } from '../states/pokemons/action';
 import api from '../utils/api';
 import FilteredBar from '../components/atoms/FilteredBar';
 import Wrapper from '../components/atoms/Wrapper';
@@ -19,7 +18,7 @@ function HomePage() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const [offset, setOffSet] = useState(0);
-  const [poke, setPoke] = useState([]);
+  const [poke, setPoke] = useState(pokemons);
   const [active, setActive] = useState(false);
 
   const handleAddFavorite = (key) => {
@@ -27,15 +26,14 @@ function HomePage() {
     navigate('/favorite');
   };
 
-  const handleLoadMore = async () => {
+  const handleLoadData = async () => {
     const results = await api.getAllPokemon(offset);
     setPoke([...poke, ...results]);
     setOffSet(offset + 10);
   };
 
   useEffect(() => {
-    handleLoadMore();
-    dispatch(asyncPokemons(offset));
+    handleLoadData();
     setIsloading(false);
   }, [dispatch]);
   return (
@@ -70,7 +68,7 @@ function HomePage() {
           isLoading ? (
             <SpinnerLoading />
           ) : (
-            poke.map((pokemon) => (
+            poke?.map((pokemon) => (
               <div className="md=flex md:flex-row justify-center" key={pokemon.id}>
                 <Card pokemon={pokemon}>
                   <PokemonList pokemon={pokemon} key={pokemon.id} isLoading={isLoading} />
@@ -90,21 +88,25 @@ function HomePage() {
         }
         </div>
       </div>
-      <div className="flex w-full">
-        <button
-          type="button"
-          className="w-full justify-center shadow-md bg-violet-400 hover:bg-violet-500 cursor-pointer p-2 rounded-t-full text-white capitalize"
-          onClick={() => handleLoadMore()}
-        >
-          {
+      {
+        !isLoading && (
+          <div className="flex w-full">
+            <button
+              type="button"
+              className="w-full justify-center shadow-md bg-violet-400 hover:bg-violet-500 cursor-pointer p-2 rounded-t-full text-white capitalize"
+              onClick={() => handleLoadData()}
+            >
+              {
             isLoading ? (
               <SpinnerLoading />
             ) : (
               <p>Load more</p>
             )
           }
-        </button>
-      </div>
+            </button>
+          </div>
+        )
+      }
     </Wrapper>
   );
 }
