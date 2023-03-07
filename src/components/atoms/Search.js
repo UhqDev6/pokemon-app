@@ -15,7 +15,7 @@ function Search(props) {
         searchChange(event.target.value);
       }}
       placeholder="Search pokemon by name...."
-      className="bg-violet-50 w-full h-[34px] rounded-full p-4 text-xs"
+      className="bg-violet-50 w-full md:w-1/2 h-[34px] rounded-full p-4 text-xs flex mx-auto"
     />
   );
 }

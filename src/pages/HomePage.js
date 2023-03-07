@@ -51,7 +51,7 @@ function HomePage() {
 
   return (
     <Wrapper>
-      <div className="flex justify-end mr-10 gap-5">
+      <div className="flex justify-end mr-10 gap-5 mt-6">
         <div className="w-full ml-10">
           <Search search={searching} searchChange={onSearchChangeHandler} />
         </div>
