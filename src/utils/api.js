@@ -11,8 +11,8 @@ const api = (() => {
         const dataRes = await res.json();
         return dataRes;
       });
-
       const results = await Promise.all(result);
+
       return results;
     } catch (error) {
       throw new Error(error.message);
