@@ -65,7 +65,19 @@ function Favorite() {
                     </div>
                   </div>
                 </Link>
-                <div className="flex justify-center shadow-md bg-violet-400 hover:bg-violet-500 cursor-pointer p-2 rounded-b-3xl text-white">
+                <div className="
+                      flex justify-center rounded-b-3xl
+                      shadow-md
+                      bg-violet-400
+                      hover:bg-gradient-to-r
+                      hover:from-violet-400
+                      hover:to-fuchsia-300
+                      cursor-pointer
+                      p-2
+                      text-white capitalize
+                      overflow-hidden
+                      tracking-wider"
+                >
                   <button
                     type="button"
                     onClick={() => handleDeleteFavorite(fv.id)}

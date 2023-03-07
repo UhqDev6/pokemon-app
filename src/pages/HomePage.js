@@ -80,30 +80,48 @@ function HomePage() {
       <div className={active ? 'block' : 'hidden'}>
         <FilteredBar />
       </div>
-      <div className="p-5 flex w-full mx-auto justify-center sm:justify-start">
+      <div className="p-5 flex w-full mx-auto justify-center">
         <div className="flex flex-wrap gap-5 justify-center">
           {
           // eslint-disable-next-line no-nested-ternary
           isLoading ? (
             <SpinnerLoading />
-          ) : getPokemon.length > 0
-            ? getPokemon?.map((pokemon) => (
-              <div className="md=flex md:flex-row justify-center" key={pokemon.id}>
-                <Card pokemon={pokemon}>
-                  <PokemonList pokemon={pokemon} key={pokemon.id} isLoading={isLoading} />
-                </Card>
-                <div className="flex justify-center shadow-md bg-violet-400 hover:bg-violet-500 cursor-pointer p-2 rounded-b-3xl text-white">
-                  <button
-                    type="button"
-                    onClick={() => handleAddFavorite(pokemon.id)}
-                    className="capitalize"
+          ) : (
+            getPokemon.length > 0
+              ? getPokemon?.map((pokemon) => (
+                <div className="md=flex md:flex-row justify-center" key={pokemon.id}>
+                  <Card pokemon={pokemon}>
+                    <PokemonList pokemon={pokemon} key={pokemon.id} isLoading={isLoading} />
+                  </Card>
+                  <div className="
+                      flex justify-center rounded-b-3xl
+                      shadow-md
+                      bg-violet-400
+                      hover:bg-gradient-to-r
+                      hover:from-violet-400
+                      hover:to-fuchsia-300
+                      cursor-pointer
+                      p-2
+                      text-white capitalize
+                      overflow-hidden
+                      tracking-wider"
                   >
-                    add to favorite
-                  </button>
+                    <button
+                      type="button"
+                      onClick={() => handleAddFavorite(pokemon.id)}
+                      className="capitalize"
+                    >
+                      add to favorite
+                    </button>
+                  </div>
                 </div>
-              </div>
-            ))
-            : <p className="text-xs font-light text-slate-500 mt-40">Pokemon empty...</p>
+              ))
+              : (
+                <div>
+                  <p className="text-xs font-light text-slate-500 flex mt-40">Pokemon empty...</p>
+                </div>
+              )
+          )
         }
         </div>
       </div>
@@ -112,7 +130,20 @@ function HomePage() {
           <div className="flex w-full">
             <button
               type="button"
-              className="w-full justify-center shadow-md bg-violet-400 hover:bg-violet-500 cursor-pointer p-2 rounded-t-full text-white capitalize"
+              className="
+                w-full
+                justify-center
+                shadow-md
+                bg-violet-400
+                hover:bg-gradient-to-r
+                hover:from-violet-400
+                hover:to-fuchsia-300
+                cursor-pointer
+                p-2 rounded-t-full
+                text-white capitalize
+                overflow-hidden
+                tracking-wider
+              "
               onClick={() => handleLoadData()}
             >
               {
