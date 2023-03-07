@@ -143,7 +143,13 @@ function DetailPage() {
               <div className="flex w-full">
                 <button
                   type="button"
-                  className="w-full justify-center shadow-md bg-violet-400 hover:bg-violet-500 cursor-pointer p-2 rounded-3xl text-white"
+                  className="w-full justify-center shadow-md cursor-pointer p-2
+                      rounded-3xl
+                    text-white
+                    bg-violet-400
+                      hover:bg-gradient-to-r
+                    hover:from-violet-400
+                    hover:to-fuchsia-300"
                   onClick={() => handleFavorite(pokemonDetail.id)}
                 >
                   add to favorite
