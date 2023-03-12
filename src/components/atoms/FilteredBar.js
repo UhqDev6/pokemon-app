@@ -1,282 +1,256 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import React from 'react';
+import { useDispatch } from 'react-redux';
+import PropTypes from 'prop-types';
+import { setFilteredByTypeActionCreator } from '../../states/filteredbyType/action';
 
-function FilteredBar() {
+function FilteredBar(props) {
+  const {
+    filteredByType,
+  } = props;
+  const dispatch = useDispatch();
+
+  const handleFilteredByType = (key) => {
+    dispatch(setFilteredByTypeActionCreator(key));
+  };
+
   return (
     <div className="flex justify-end">
       <div className="bg-violet-300 w-72 h-screen absolute z-20 mt-5 rounded-l-3xl shadow-lg">
         <span className="flex justify-center mt-4 text-xl font-light text-white">Filter by type</span>
         <div className="w-full mt-8 ml-4">
           <div className="items-center pl-4">
-            <input
-              type="checkbox"
-              id="grass"
-              name="grass"
-              className="w-4 h-4 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
-            />
-            <label
-              htmlFor="bordered-checkbox-1"
-              className="w-full py-4 ml-2 text-base font-light"
+            <button
+              type="button"
+              onClick={() => handleFilteredByType('grass')}
+              className={`${filteredByType === 'grass' ? 'bg-orange-200 text-black p-1 rounded-xl' : 'text-white'}`}
             >
-              Grass
-            </label>
+              <span>
+                Grass
+              </span>
+            </button>
           </div>
           <div className="items-center pl-4">
-            <input
-              type="checkbox"
-              id="grass"
-              name="grass"
-              className="w-4 h-4 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
-            />
-            <label
-              htmlFor="bordered-checkbox-1"
-              className="w-full py-4 ml-2 text-base font-light"
+            <button
+              type="button"
+              onClick={() => handleFilteredByType('fire')}
+              className={`${filteredByType === 'fire' ? 'bg-orange-200 text-black p-1 rounded-xl' : 'text-white'}`}
             >
-              Fire
-            </label>
+              <span>
+                Fire
+              </span>
+            </button>
           </div>
           <div className="items-center pl-4">
-            <input
-              type="checkbox"
-              id="grass"
-              name="grass"
-              className="w-4 h-4 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
-            />
-            <label
-              htmlFor="bordered-checkbox-1"
-              className="w-full py-4 ml-2 text-base font-light"
+            <button
+              type="button"
+              onClick={() => handleFilteredByType('steel')}
+              className={`${filteredByType === 'steel' ? 'bg-orange-200 text-black p-1 rounded-xl' : 'text-white'}`}
             >
-              Steel
-            </label>
+              <span>
+                Steel
+              </span>
+            </button>
           </div>
           <div className="items-center pl-4">
-            <input
-              type="checkbox"
-              id="grass"
-              name="grass"
-              className="w-4 h-4 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
-            />
-            <label
-              htmlFor="bordered-checkbox-1"
-              className="w-full py-4 ml-2 text-base font-light"
+            <button
+              type="button"
+              onClick={() => handleFilteredByType('water')}
+              className={`${filteredByType === 'water' ? 'bg-orange-200 text-black p-1 rounded-xl' : 'text-white'}`}
             >
-              Water
-            </label>
+              <span>
+                Water
+              </span>
+            </button>
           </div>
           <div className="items-center pl-4">
-            <input
-              type="checkbox"
-              id="grass"
-              name="grass"
-              className="w-4 h-4 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
-            />
-            <label
-              htmlFor="bordered-checkbox-1"
-              className="w-full py-4 ml-2 text-base font-light"
+            <button
+              type="button"
+              onClick={() => handleFilteredByType('psychic')}
+              className={`${filteredByType === 'psychic' ? 'bg-orange-200 text-black p-1 rounded-xl' : 'text-white'}`}
             >
-              Psychic
-            </label>
+              <span>
+                Psychic
+              </span>
+            </button>
           </div>
           <div className="items-center pl-4">
-            <input
-              type="checkbox"
-              id="grass"
-              name="grass"
-              className="w-4 h-4 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
-            />
-            <label
-              htmlFor="bordered-checkbox-1"
-              className="w-full py-4 ml-2 text-base font-light"
+            <button
+              type="button"
+              onClick={() => handleFilteredByType('ground')}
+              className={`${filteredByType === 'ground' ? 'bg-orange-200 text-black p-1 rounded-xl' : 'text-white'}`}
             >
-              Ground
-            </label>
+              <span>
+                Ground
+              </span>
+            </button>
           </div>
           <div className="items-center pl-4">
-            <input
-              type="checkbox"
-              id="grass"
-              name="grass"
-              className="w-4 h-4 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
-            />
-            <label
-              htmlFor="bordered-checkbox-1"
-              className="w-full py-4 ml-2 text-base font-light"
+            <button
+              type="button"
+              onClick={() => handleFilteredByType('ice')}
+              className={`${filteredByType === 'ice' ? 'bg-orange-200 text-black p-1 rounded-xl' : 'text-white'}`}
             >
-              Ice
-            </label>
+              <span>
+                Ice
+              </span>
+            </button>
           </div>
           <div className="items-center pl-4">
-            <input
-              type="checkbox"
-              id="grass"
-              name="grass"
-              className="w-4 h-4 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
-            />
-            <label
-              htmlFor="bordered-checkbox-1"
-              className="w-full py-4 ml-2 text-base font-light"
+            <button
+              type="button"
+              onClick={() => handleFilteredByType('flying')}
+              className={`${filteredByType === 'flying' ? 'bg-orange-200 text-black p-1 rounded-xl' : 'text-white'}`}
             >
-              Flying
-            </label>
+              <span>
+                Flying
+              </span>
+            </button>
           </div>
           <div className="items-center pl-4">
-            <input
-              type="checkbox"
-              id="grass"
-              name="grass"
-              className="w-4 h-4 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
-            />
-            <label
-              htmlFor="bordered-checkbox-1"
-              className="w-full py-4 ml-2 text-base font-light"
+            <button
+              type="button"
+              onClick={() => handleFilteredByType('ghost')}
+              className={`${filteredByType === 'ghost' ? 'bg-orange-200 text-black p-1 rounded-xl' : 'text-white'}`}
             >
-              Ghost
-            </label>
+              <span>
+                Ghost
+              </span>
+            </button>
           </div>
           <div className="items-center pl-4">
-            <input
-              type="checkbox"
-              id="grass"
-              name="grass"
-              className="w-4 h-4 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
-            />
-            <label
-              htmlFor="bordered-checkbox-1"
-              className="w-full py-4 ml-2 text-base font-light"
+            <button
+              type="button"
+              onClick={() => handleFilteredByType('normal')}
+              className={`${filteredByType === 'normal' ? 'bg-orange-200 text-black p-1 rounded-xl' : 'text-white'}`}
             >
-              Normal
-            </label>
+              <span>
+                Normal
+              </span>
+            </button>
           </div>
           <div className="items-center pl-4">
-            <input
-              type="checkbox"
-              id="grass"
-              name="grass"
-              className="w-4 h-4 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
-            />
-            <label
-              htmlFor="bordered-checkbox-1"
-              className="w-full py-4 ml-2 text-base font-light"
+            <button
+              type="button"
+              onClick={() => handleFilteredByType('paison')}
+              className={`${filteredByType === 'paison' ? 'bg-orange-200 text-black p-1 rounded-xl' : 'text-white'}`}
             >
-              Poison
-            </label>
+              <span>
+                Paison
+              </span>
+            </button>
           </div>
           <div className="items-center pl-4">
-            <input
-              type="checkbox"
-              id="grass"
-              name="grass"
-              className="w-4 h-4 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
-            />
-            <label
-              htmlFor="bordered-checkbox-1"
-              className="w-full py-4 ml-2 text-base font-light"
+            <button
+              type="button"
+              onClick={() => handleFilteredByType('rock')}
+              className={`${filteredByType === 'rock' ? 'bg-orange-200 text-black p-1 rounded-xl' : 'text-white'}`}
             >
-              Rock
-            </label>
+              <span>
+                Rock
+              </span>
+            </button>
           </div>
           <div className="items-center pl-4">
-            <input
-              type="checkbox"
-              id="grass"
-              name="grass"
-              className="w-4 h-4 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
-            />
-            <label
-              htmlFor="bordered-checkbox-1"
-              className="w-full py-4 ml-2 text-base font-light"
+            <button
+              type="button"
+              onClick={() => handleFilteredByType('fighting')}
+              className={`${filteredByType === 'fighting' ? 'bg-orange-200 text-black p-1 rounded-xl' : 'text-white'}`}
             >
-              Fighting
-            </label>
+              <span>
+                Fighting
+              </span>
+            </button>
           </div>
           <div className="items-center pl-4">
-            <input
-              type="checkbox"
-              id="grass"
-              name="grass"
-              className="w-4 h-4 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
-            />
-            <label
-              htmlFor="bordered-checkbox-1"
-              className="w-full py-4 ml-2 text-base font-light"
+            <button
+              type="button"
+              onClick={() => handleFilteredByType('dark')}
+              className={`${filteredByType === 'dark' ? 'bg-orange-200 text-black p-1 rounded-xl' : 'text-white'}`}
             >
-              Dark
-            </label>
+              <span>
+                Dark
+              </span>
+            </button>
           </div>
           <div className="items-center pl-4">
-            <input
-              type="checkbox"
-              id="grass"
-              name="grass"
-              className="w-4 h-4 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
-            />
-            <label
-              htmlFor="bordered-checkbox-1"
-              className="w-full py-4 ml-2 text-base font-light"
+            <button
+              type="button"
+              onClick={() => handleFilteredByType('bug')}
+              className={`${filteredByType === 'bug' ? 'bg-orange-200 text-black p-1 rounded-xl' : 'text-white'}`}
             >
-              Bug
-            </label>
+              <span>
+                Bug
+              </span>
+            </button>
           </div>
           <div className="items-center pl-4">
-            <input
-              type="checkbox"
-              id="grass"
-              name="grass"
-              className="w-4 h-4 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
-            />
-            <label
-              htmlFor="bordered-checkbox-1"
-              className="w-full py-4 ml-2 text-base font-light"
+            <button
+              type="button"
+              onClick={() => handleFilteredByType('dragon')}
+              className={`${filteredByType === 'dragon' ? 'bg-orange-200 text-black p-1 rounded-xl' : 'text-white'}`}
             >
-              Dragon
-            </label>
+              <span>
+                Dragon
+              </span>
+            </button>
           </div>
           <div className="items-center pl-4">
-            <input
-              type="checkbox"
-              id="grass"
-              name="grass"
-              className="w-4 h-4 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
-            />
-            <label
-              htmlFor="bordered-checkbox-1"
-              className="w-full py-4 ml-2 text-base font-light"
+            <button
+              type="button"
+              onClick={() => handleFilteredByType('electric')}
+              className={`${filteredByType === 'electric' ? 'bg-orange-200 text-black p-1 rounded-xl' : 'text-white'}`}
             >
-              Electric
-            </label>
+              <span>
+                Electric
+              </span>
+            </button>
           </div>
           <div className="items-center pl-4">
-            <input
-              type="checkbox"
-              id="grass"
-              name="grass"
-              className="w-4 h-4 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
-            />
-            <label
-              htmlFor="bordered-checkbox-1"
-              className="w-full py-4 ml-2 text-base font-light"
+            <button
+              type="button"
+              onClick={() => handleFilteredByType('fairy')}
+              className={`${filteredByType === 'fairy' ? 'bg-orange-200 text-black p-1 rounded-xl' : 'text-white'}`}
             >
-              Fairy
-            </label>
+              <span>
+                Fairy
+              </span>
+            </button>
           </div>
           <div className="items-center pl-4">
-            <input
-              type="checkbox"
-              id="grass"
-              name="grass"
-              className="w-4 h-4 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
-            />
-            <label
-              htmlFor="bordered-checkbox-1"
-              className="w-full py-4 ml-2 text-base font-light"
+            <button
+              type="button"
+              onClick={() => handleFilteredByType('shadow')}
+              className={`${filteredByType === 'shadow' ? 'bg-orange-200 text-black p-1 rounded-xl' : 'text-white'}`}
             >
-              Shadow
-            </label>
+              <span>
+                Shadow
+              </span>
+            </button>
+          </div>
+          <div className="items-center pl-4">
+            <button
+              type="button"
+              onClick={() => handleFilteredByType('')}
+              className={`${filteredByType === '' ? 'bg-orange-200 text-black p-1 rounded-xl' : 'text-white'}`}
+            >
+              <span>
+                All...
+              </span>
+            </button>
           </div>
         </div>
       </div>
     </div>
   );
 }
+
+FilteredBar.propTypes = {
+  filteredByType: PropTypes.string,
+};
+
+FilteredBar.defaultProps = {
+  filteredByType: '',
+};
 
 export default FilteredBar;
