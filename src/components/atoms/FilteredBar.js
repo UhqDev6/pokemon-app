@@ -23,7 +23,7 @@ function FilteredBar(props) {
             <button
               type="button"
               onClick={() => handleFilteredByType('grass')}
-              className={`${filteredByType === 'grass' ? 'bg-orange-200 text-black p-1 rounded-xl' : 'text-white'}`}
+              className={`${filteredByType === 'grass' ? 'bg-orange-200 text-black p-1 rounded-xl transition duration-700' : 'text-white'}`}
             >
               <span>
                 Grass
@@ -34,7 +34,7 @@ function FilteredBar(props) {
             <button
               type="button"
               onClick={() => handleFilteredByType('fire')}
-              className={`${filteredByType === 'fire' ? 'bg-orange-200 text-black p-1 rounded-xl' : 'text-white'}`}
+              className={`${filteredByType === 'fire' ? 'bg-orange-200 text-black p-1 rounded-xl transition duration-700' : 'text-white'}`}
             >
               <span>
                 Fire
@@ -45,7 +45,7 @@ function FilteredBar(props) {
             <button
               type="button"
               onClick={() => handleFilteredByType('steel')}
-              className={`${filteredByType === 'steel' ? 'bg-orange-200 text-black p-1 rounded-xl' : 'text-white'}`}
+              className={`${filteredByType === 'steel' ? 'bg-orange-200 text-black p-1 rounded-xl transition duration-700' : 'text-white'}`}
             >
               <span>
                 Steel
@@ -56,7 +56,7 @@ function FilteredBar(props) {
             <button
               type="button"
               onClick={() => handleFilteredByType('water')}
-              className={`${filteredByType === 'water' ? 'bg-orange-200 text-black p-1 rounded-xl' : 'text-white'}`}
+              className={`${filteredByType === 'water' ? 'bg-orange-200 text-black p-1 rounded-xl transition duration-700' : 'text-white'}`}
             >
               <span>
                 Water
@@ -67,7 +67,7 @@ function FilteredBar(props) {
             <button
               type="button"
               onClick={() => handleFilteredByType('psychic')}
-              className={`${filteredByType === 'psychic' ? 'bg-orange-200 text-black p-1 rounded-xl' : 'text-white'}`}
+              className={`${filteredByType === 'psychic' ? 'bg-orange-200 text-black p-1 rounded-xl transition duration-700' : 'text-white'}`}
             >
               <span>
                 Psychic
@@ -78,7 +78,7 @@ function FilteredBar(props) {
             <button
               type="button"
               onClick={() => handleFilteredByType('ground')}
-              className={`${filteredByType === 'ground' ? 'bg-orange-200 text-black p-1 rounded-xl' : 'text-white'}`}
+              className={`${filteredByType === 'ground' ? 'bg-orange-200 text-black p-1 rounded-xl transition duration-700' : 'text-white'}`}
             >
               <span>
                 Ground
@@ -89,7 +89,7 @@ function FilteredBar(props) {
             <button
               type="button"
               onClick={() => handleFilteredByType('ice')}
-              className={`${filteredByType === 'ice' ? 'bg-orange-200 text-black p-1 rounded-xl' : 'text-white'}`}
+              className={`${filteredByType === 'ice' ? 'bg-orange-200 text-black p-1 rounded-xl transition duration-700' : 'text-white'}`}
             >
               <span>
                 Ice
@@ -100,7 +100,7 @@ function FilteredBar(props) {
             <button
               type="button"
               onClick={() => handleFilteredByType('flying')}
-              className={`${filteredByType === 'flying' ? 'bg-orange-200 text-black p-1 rounded-xl' : 'text-white'}`}
+              className={`${filteredByType === 'flying' ? 'bg-orange-200 text-black p-1 rounded-xl transition duration-700' : 'text-white'}`}
             >
               <span>
                 Flying
@@ -111,7 +111,7 @@ function FilteredBar(props) {
             <button
               type="button"
               onClick={() => handleFilteredByType('ghost')}
-              className={`${filteredByType === 'ghost' ? 'bg-orange-200 text-black p-1 rounded-xl' : 'text-white'}`}
+              className={`${filteredByType === 'ghost' ? 'bg-orange-200 text-black p-1 rounded-xl transition duration-700' : 'text-white'}`}
             >
               <span>
                 Ghost
@@ -122,7 +122,7 @@ function FilteredBar(props) {
             <button
               type="button"
               onClick={() => handleFilteredByType('normal')}
-              className={`${filteredByType === 'normal' ? 'bg-orange-200 text-black p-1 rounded-xl' : 'text-white'}`}
+              className={`${filteredByType === 'normal' ? 'bg-orange-200 text-black p-1 rounded-xl transition duration-700' : 'text-white'}`}
             >
               <span>
                 Normal
@@ -132,11 +132,11 @@ function FilteredBar(props) {
           <div className="items-center pl-4">
             <button
               type="button"
-              onClick={() => handleFilteredByType('paison')}
-              className={`${filteredByType === 'paison' ? 'bg-orange-200 text-black p-1 rounded-xl' : 'text-white'}`}
+              onClick={() => handleFilteredByType('poison')}
+              className={`${filteredByType === 'poison' ? 'bg-orange-200 text-black p-1 rounded-xl transition duration-700' : 'text-white'}`}
             >
               <span>
-                Paison
+                Poison
               </span>
             </button>
           </div>
@@ -144,7 +144,7 @@ function FilteredBar(props) {
             <button
               type="button"
               onClick={() => handleFilteredByType('rock')}
-              className={`${filteredByType === 'rock' ? 'bg-orange-200 text-black p-1 rounded-xl' : 'text-white'}`}
+              className={`${filteredByType === 'rock' ? 'bg-orange-200 text-black p-1 rounded-xl transition duration-700' : 'text-white'}`}
             >
               <span>
                 Rock
@@ -155,7 +155,7 @@ function FilteredBar(props) {
             <button
               type="button"
               onClick={() => handleFilteredByType('fighting')}
-              className={`${filteredByType === 'fighting' ? 'bg-orange-200 text-black p-1 rounded-xl' : 'text-white'}`}
+              className={`${filteredByType === 'fighting' ? 'bg-orange-200 text-black p-1 rounded-xl transition duration-700' : 'text-white'}`}
             >
               <span>
                 Fighting
@@ -166,7 +166,7 @@ function FilteredBar(props) {
             <button
               type="button"
               onClick={() => handleFilteredByType('dark')}
-              className={`${filteredByType === 'dark' ? 'bg-orange-200 text-black p-1 rounded-xl' : 'text-white'}`}
+              className={`${filteredByType === 'dark' ? 'bg-orange-200 text-black p-1 rounded-xl transition duration-700' : 'text-white'}`}
             >
               <span>
                 Dark
@@ -177,7 +177,7 @@ function FilteredBar(props) {
             <button
               type="button"
               onClick={() => handleFilteredByType('bug')}
-              className={`${filteredByType === 'bug' ? 'bg-orange-200 text-black p-1 rounded-xl' : 'text-white'}`}
+              className={`${filteredByType === 'bug' ? 'bg-orange-200 text-black p-1 rounded-xl transition duration-700' : 'text-white'}`}
             >
               <span>
                 Bug
@@ -188,7 +188,7 @@ function FilteredBar(props) {
             <button
               type="button"
               onClick={() => handleFilteredByType('dragon')}
-              className={`${filteredByType === 'dragon' ? 'bg-orange-200 text-black p-1 rounded-xl' : 'text-white'}`}
+              className={`${filteredByType === 'dragon' ? 'bg-orange-200 text-black p-1 rounded-xl transition duration-700' : 'text-white'}`}
             >
               <span>
                 Dragon
@@ -199,7 +199,7 @@ function FilteredBar(props) {
             <button
               type="button"
               onClick={() => handleFilteredByType('electric')}
-              className={`${filteredByType === 'electric' ? 'bg-orange-200 text-black p-1 rounded-xl' : 'text-white'}`}
+              className={`${filteredByType === 'electric' ? 'bg-orange-200 text-black p-1 rounded-xl transition duration-700' : 'text-white'}`}
             >
               <span>
                 Electric
@@ -210,7 +210,7 @@ function FilteredBar(props) {
             <button
               type="button"
               onClick={() => handleFilteredByType('fairy')}
-              className={`${filteredByType === 'fairy' ? 'bg-orange-200 text-black p-1 rounded-xl' : 'text-white'}`}
+              className={`${filteredByType === 'fairy' ? 'bg-orange-200 text-black p-1 rounded-xl transition duration-700' : 'text-white'}`}
             >
               <span>
                 Fairy
@@ -221,7 +221,7 @@ function FilteredBar(props) {
             <button
               type="button"
               onClick={() => handleFilteredByType('shadow')}
-              className={`${filteredByType === 'shadow' ? 'bg-orange-200 text-black p-1 rounded-xl' : 'text-white'}`}
+              className={`${filteredByType === 'shadow' ? 'bg-orange-200 text-black p-1 rounded-xl transition duration-700' : 'text-white'}`}
             >
               <span>
                 Shadow
@@ -232,7 +232,7 @@ function FilteredBar(props) {
             <button
               type="button"
               onClick={() => handleFilteredByType('')}
-              className={`${filteredByType === '' ? 'bg-orange-200 text-black p-1 rounded-xl' : 'text-white'}`}
+              className={`${filteredByType === '' ? 'bg-orange-200 text-black p-1 rounded-xl transition duration-700' : 'text-white'}`}
             >
               <span>
                 All...

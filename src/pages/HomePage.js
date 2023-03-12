@@ -246,38 +246,6 @@ function HomePage() {
         }
         </div>
       </div>
-      {
-        getPokemon.length > 0 && (
-          <div className="flex w-full">
-            <button
-              type="button"
-              className="
-                w-full
-                justify-center
-                shadow-md
-                bg-violet-400
-                hover:bg-gradient-to-r
-                hover:from-violet-400
-                hover:to-fuchsia-300
-                cursor-pointer
-                p-2 rounded-t-full
-                text-white capitalize
-                overflow-hidden
-                tracking-wider
-              "
-              onClick={() => handleLoadData()}
-            >
-              {
-            isLoading ? (
-              <SpinnerLoading />
-            ) : (
-              <p>Load more</p>
-            )
-          }
-            </button>
-          </div>
-        )
-      }
     </Wrapper>
   );
 }
